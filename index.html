@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Вакансии для студентов и молодых специалистов - стажировки, работы и подработки без опыта</title>
+  <style>
+    a {
+  color: inherit;
+  text-decoration: inherit;
+  cursor: inherit;
+}
+    body {
+      margin: 0;
+      font-family: DAYTON, sans-serif;
+      background: linear-gradient(135deg, #8896dc 0%, #ffffff 100%);
+      color: #333;
+    }
+
+    header {
+        background: linear-gradient(135deg, #475092, #b4d6f7);
+      padding: 20px;
+      text-align: center;
+      color: #fff;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 24px;
+    }
+
+    header p {
+      margin: 5px 0 0;
+      font-size: 14px;
+    }
+
+    .main-banner {
+      text-align: center;
+      padding: 50px 20px;
+      position: relative;
+    }
+
+    .main-banner h2 {
+      font-size: 32px;
+      margin-bottom: 20px;
+    }
+
+    .keywords {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .keywords span {
+      background-color: #f2f4f7;
+      color: #333;
+      border-radius: 20px;
+      padding: 10px 15px;
+      font-size: 14px;
+      font-weight: bold;
+      font-family: comic sans ms, sans-serif;
+      box-shadow: 0 4px 6px rgba(153, 0, 255, 0.1);
+      transition: border 0.3s;
+    }
+
+    .keywords span:hover {
+      border: 2px solid #6b17d8;
+    }
+
+    .buttons {
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    .buttons button {
+      background-color: #6b17d8;
+      color: #fff;
+      border: none;
+      border-radius: 25px;
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+      margin: 10px;
+      transition: transform 0.3s, background-color 0.3s;
+    }
+
+    .buttons button:hover {
+      background-color:#6f00ff;
+      transform: translateY(-5px);
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+      padding: 40px;
+      justify-items: center;
+    }
+
+    .card {
+      background-color: #fff;
+      border: 1px solid #ddd;
+      border-radius: 12px;
+      padding: 20px;
+      text-align: center;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      width: 100%;
+      max-width: 300px;
+      position: relative;
+      transition: transform 0.3s, background-color 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-10px);
+      background-color: #f2f4f7;
+    }
+
+    .card h3 {
+      font-size: 18px;
+      color: #333;
+      margin-bottom: 10px;
+    }
+
+    .card p {
+      font-size: 14px;
+      color: #666;
+      margin: 5px 0;
+    }
+
+    .card button {
+      margin-top: 10px;
+      padding: 8px 12px;
+      font-size: 14px;
+      background-color: #6b17d8;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .card button:hover {
+      background-color: #6f00ff;
+    }
+
+    .test-section {
+      text-align: center;
+      margin: 40px 20px;
+      padding: 20px;
+      background-color: rgba(255, 255, 255, 0.8);
+      border-radius: 15px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .test-section button {
+      background-color: #6b17d8;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      padding: 10px 15px;
+      font-size: 16px;
+      cursor: pointer;
+      margin: 10px;
+      transition: background-color 0.3s;
+    }
+
+    .test-section button:hover {
+      background-color: #6f00ff;
+    }
+
+    .test-question {
+      display: none;
+      margin-top: 20px;
+    }
+
+    .test-question.active {
+      display: block;
+    }
+
+    .test-question p {
+      font-size: 18px;
+      margin-bottom: 15px;
+    }
+
+    .test-question button {
+      margin: 5px;
+    }
+
+    .jobs-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 15px;
+      margin: 30px 20px;
+      padding: 20px;
+      background-color: rgba(255, 255, 255, 0.8);
+      border-radius: 15px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .jobs-list a {
+      text-decoration: none;
+      font-size: 14px;
+      color: #000000;
+      text-align: center;
+      background-color: #f2f4f7;
+      border-radius: 12px;
+      padding: 10px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      transition: background-color 0.3s;
+    }
+
+    .jobs-list a:hover {
+      background-color: #cce7e2;
+    }
+
+    /* Highlight Job Card */
+    .highlight {
+      background-color: #ffe8e8;
+      border: 2px solid #e91e63;
+      animation: highlight-animation 1s ease-in-out infinite alternate;
+    }
+
+    @keyframes highlight-animation {
+      from {
+        transform: scale(1);
+      }
+      to {
+        transform: scale(1.05);
+      }
+    }
+    /* Важная часть */
+.popup__bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: rgba(0,0,0,0.5);
+    opacity: 0;
+    pointer-events: none;
+    transition: 0.5s all;
+}
+
+.popup__bg.active {
+    opacity: 1;
+    pointer-events: all;
+    transition: 0.5s all;
+}
+
+.popup {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    background: #fff;
+    width: 400px;
+    padding: 25px;
+    transition: 0.5s all;
+}
+
+.popup.active {
+    transform: translate(-50%, -50%) scale(1);
+    transition: 0.5s all;
+    z-index: 10;
+}
+/* Конец важной части */
+/* Далее код для стилизации формы */
+.close-popup {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+}
+
+.popup label {
+    width: 100%;
+    margin-bottom: 25px;
+    display: flex;
+    flex-direction: column-reverse;
+}
+
+.popup .label__text {
+    font-size: 14px;
+    text-transform: uppercase;
+    font-weight: 500;
+    color: #cfd0d3;
+    margin-bottom: 5px;
+}
+
+.popup input {
+    height: 45px;
+    font-size: 18px;
+    border: none;
+    outline: none;
+    border-bottom: 1px solid #cfd0d3;
+}
+
+.popup input:focus {
+    border-bottom: 1px solid #2982ff;
+}
+
+.popup input:focus + .label__text {
+    color: #2982ff;
+}
+
+.popup textarea {
+    resize: none;
+    width: 100%;
+    height: 150px;
+    border: none;
+    outline: none;
+    border-bottom: 1px solid #cfd0d3;
+    font-size: 18px;
+    padding-top: 5px;
+}
+
+.popup textarea:focus {
+    border-bottom: 1px solid #2982ff;
+}
+
+.popup textarea:focus + .label__text {
+    color: #2982ff;
+}
+
+.popup button {
+    width: 100%;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-size: 18px;
+    border: 2px solid #2982ff;
+    background: #2982ff;
+    cursor: pointer;
+    text-transform: uppercase;
+    transition: 0.5s all;
+}
+
+.popup button:hover {
+    background: #fff;
+    color:#2982ff;
+    transition: 0.5s all;
+}
+  </style>
+</head>
+<body>
+  <header>
+    <h1 style="color:#000000">HHstudents</h1>
+    <p style="color:#000000">Лучший сайт по подбору вакансий для студентов и школьников</p>
+  </header>
+
+  <section class="main-banner">
+    <h2><span style="font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif">Поможем найти первую работу и начать карьеру</span></h2>
+    <div class="keywords">
+      <span style="transform: rotate(10deg); text-align: left;">сам себе босс</span>
+      <span style="transform: rotate(-10deg);">карманные деньги</span>
+      <span style="transform: rotate(12deg);">получу опыт</span>
+      <span style="transform: rotate(-12deg);">карьерный старт</span>
+      <span style="transform: rotate(-11deg);">всё смогу</span>
+    </div>
+    <div class="popup__bg">
+      <form class="popup">
+          <img src="images/close-square-svgrepo-com.svg" class="close-popup">
+          <label>
+              <input type="text" name="name">
+              <div class="label__text">
+                  Ваше имя
+              </div>
+          </label>
+          <label>
+              <input type="tel" name="tel">
+              <div class="label__text">
+                  Ваш телефон
+              </div>
+          </label>
+          <label>
+              <textarea name="message"></textarea>
+              <div class="label__text">
+                  Ваше сообщение
+              </div>
+          </label>
+          <button type="submit">Отправить</button>
+      </form>
+  </div>
+    <div class="buttons">
+      <button><a href="#" class="open-popup">Создать резюме</a></button>
+      <a href='#Я не знаю с чего начать'>
+        <button id="restart-testr" class="green-button" onclick="document.getElementById('povar').scrollIntoView({ behavior: 'smooth' });">Я не знаю, с чего начать.
+      </button>
+      </a>
+    </div>
+  </section>
+
+  <section class="cards">
+    <div class="card" data-category="студентам">
+      <h3>Подработка</h3>
+      <p>гибкий график</p>
+      <p>на карманные расходы</p>
+      <button><a href="https://hh.ru/search/vacancy?experience=noExperience&employment=part&hhtmFrom=students&hhtmFromLabel=for_users">Смотреть</a></button>
+    </div>
+    <div class="card" data-category="студентам выпускникам">
+      <h3>Стажировка</h3>
+      <p>прокачать навыки</p>
+      <p>получить опыт работы</p>
+      <button><a href="https://hh.ru/stazhirovki?hhtmFrom=students&hhtmFromLabel=for_users">Смотреть</a></button>
+    </div>
+    <div class="card" data-category="выпускникам">
+      <h3>Фултайм</h3>
+      <p>начать карьеру</p>
+      <p>постоянная занятость</p>
+      <button><a href="https://hh.ru/search/vacancy?employment=full&experience=noExperience&hhtmFrom=students&hhtmFromLabel=for_users">Смотреть</a></button>
+    </div>
+    <div class="card" data-category="школьникам">
+      <h3>Подросткам</h3>
+      <p>совмещать с учёбой</p>
+      <p>для соискателей 14+</p>
+      <button><a href="https://hh.ru/search/vacancy?search_field=name&search_field=company_name&search_field=description&enable_snippets=false&experience=noExperience&label=accept_kids&text=&L_save_area=true&hhtmFrom=students&hhtmFromLabel=for_users">Смотреть</a></button>
+    </div>
+  </section>
+
+  <section class="test-section">
+    <a href='#Я не знаю с чего начать'>
+      <button id="restart-test" class="green-button">Пройти профориентационный тест</button>
+    </a>
+    <div id="test-questions"></div>
+    <section id="result" style="display: none; text-align: center;">
+      <h3>Результаты теста:</h3>
+      <div id="result-links" style="margin-top: 40px;"></div>
+
+    </section>
+  </section>
+
+
+  <style>
+    /* Общий стиль для зеленых кнопок */
+    .green-button {
+      background-color: #6b17d8; /* Темно-зеленый цвет */
+      color: white;
+      border: none;
+      border-radius: 8px;
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+      margin: 10px;
+      transition: background-color 0.3s, transform 0.3s;
+    }
+
+    .green-button:hover {
+      background-color: #6f00ff; /* Более темный зеленый */
+      transform: translateY(-3px); /* Легкое приподнимание */
+    }
+
+    /* Для кнопок ответов */
+    .test-question button {
+      background-color: #6b17d8; /* Темно-зеленый цвет */
+      color: white;
+      border: none;
+      border-radius: 8px;
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+      margin: 10px;
+      transition: background-color 0.3s, transform 0.3s;
+    }
+
+    .test-question button:hover {
+      background-color: #6f00ff; /* Более темный зеленый */
+      transform: translateY(-3px); /* Легкое приподнимание */
+    }
+  </style>
+
+  <section class="jobs-list">
+    <a href="https://hh.ru/vacancies/konsultant">Продавец-консультант</a>
+    <a href="https://hh.ru/vacancies/analitik">Аналитик</a>
+    <a href="https://hh.ru/search/vacancy?text=Курьер&salary=&ored_clusters=true&experience=noExperience&accept_temporary=false&hhtmFrom=students&hhtmFromLabel=professions">Курьер</a>
+    <a href="https://hh.ru/vacancies/povar">Повар</a>
+    <a id="povar" href="https://hh.ru/vacancies/voditel?hhtmFromLabel=rainbow_profession&hhtmFrom=main">Водитель</a>
+    <a href="https://hh.ru/search/vacancy?text=Официант&salary=&ored_clusters=true&experience=noExperience&accept_temporary=false&hhtmFrom=students&hhtmFromLabel=professions">Официант</a>
+    <a href="https://hh.ru/vacancies/marketolog">Маркетолог</a>
+    <a href="https://hh.ru/vacancies/dizayner">Дизайнер</a>
+  </section>
+
+  <script>
+    const questions = [
+      { question: "Какая сфера вам ближе?", options: ["IT", "Маркетинг", "Медицина", "Искусство", "Образование"] },
+      { question: "Как вы относитесь к командной работе?", options: ["Обожаю", "Работаю в одиночку", "Не имеет значения"] },
+      { question: "Какую нагрузку вы предпочитаете?", options: ["Полный день", "Частичная занятость", "Гибкий график"] },
+      { question: "Что вам больше нравится?", options: ["Анализ данных", "Креативность", "Работа с людьми", "Физический труд"] },
+      { question: "Какое образование у вас?", options: ["Техническое", "Гуманитарное", "Медицинское", "Не имеет значения"] },
+      { question: "Вы любите путешествовать?", options: ["Да", "Нет"] },
+      { question: "Что для вас важно на работе?", options: ["Доход", "Интерес", "Стабильность", "Творчество"] },
+      { question: "Как вы относитесь к новым технологиям?", options: ["Люблю изучать", "Использую редко", "Интересуюсь, но не глубоко"] },
+      { question: "Где вы себя видите через 5 лет?", options: ["Руководитель", "Эксперт", "Фрилансер", "Работаю в команде"] },
+      { question: "Какая работа вам ближе?", options: ["Офисная", "Удаленная", "На свежем воздухе", "В больнице"] }
+    ];
+
+    const professions = {
+      IT: "https://hh.ru/vacancies/specialist_po_it",
+      Маркетинг: "https://hh.ru/vacancies/marketolog",
+      Медицина: "https://hh.ru/vacancies/medicinskiy_rabotnik",
+      Искусство: "https://hh.ru/vacancies/artist",
+      Образование: "https://hh.ru/vacancies/uchitel",
+      "Анализ данных": "https://hh.ru/vacancies/analitik-dannyh",
+      "Работа с людьми": "https://hh.ru/vacancies/konsultant",
+      "Физический труд": "https://hh.ru/vacancies/gruzchik",
+      Руководитель: "https://hh.ru/vacancies/rukovoditel",
+      Фрилансер: "https://hh.ru/vacancies/frilanser"
+    };
+
+    let currentQuestionIndex = 0;
+    let selectedAnswers = [];
+
+    const testQuestions = document.getElementById("test-questions");
+    const resultSection = document.getElementById("result");
+    const resultLinks = document.getElementById("result-links");
+    const restartButton = document.getElementById("restart-test");
+
+    // Функция для отображения вопроса
+    function showQuestion(index) {
+      const questionData = questions[index];
+
+      testQuestions.innerHTML = `
+        <div class="test-question active">
+          <p>${questionData.question}</p>
+          <div id="options-container"></div>
+        </div>
+      `;
+
+      const optionsContainer = document.getElementById("options-container");
+      questionData.options.forEach(option => {
+        const button = document.createElement("button");
+        button.textContent = option;
+        button.className = "green-button";
+        button.addEventListener("click", () => handleAnswer(option));
+        optionsContainer.appendChild(button);
+      });
+    }
+    // Обработка ответа пользователя
+    function handleAnswer(answer) {
+      selectedAnswers.push(answer);
+      currentQuestionIndex++;
+
+      if (currentQuestionIndex < questions.length) {
+        showQuestion(currentQuestionIndex);
+      } else {
+        showResult();
+      }
+    }
+    let popupBg = document.querySelector('.popup__bg'); // Фон попап окна
+let popup = document.querySelector('.popup'); // Само окно
+let openPopupButtons = document.querySelectorAll('.open-popup'); // Кнопки для показа окна
+let closePopupButton = document.querySelector('.close-popup'); // Кнопка для скрытия окна
+openPopupButtons.forEach((button) => { // Перебираем все кнопки
+    button.addEventListener('click', (e) => { // Для каждой вешаем обработчик событий на клик
+        e.preventDefault(); // Предотвращаем дефолтное поведение браузера
+        popupBg.classList.add('active'); // Добавляем класс 'active' для фона
+        popup.classList.add('active'); // И для самого окна
+    })
+});
+closePopupButton.addEventListener('click',() => { // Вешаем обработчик на крестик
+    popupBg.classList.remove('active'); // Убираем активный класс с фона
+    popup.classList.remove('active'); // И с окна
+});
+document.addEventListener('click', (e) => { // Вешаем обработчик на весь документ
+    if(e.target === popupBg) { // Если цель клика - фот, то:
+        popupBg.classList.remove('active'); // Убираем активный класс с фона
+        popup.classList.remove('active'); // И с окна
+    }
+});
+    // Отображение результатов теста
+    function showResult() {
+      testQuestions.style.display = "none";
+      resultSection.style.display = "block";
+
+      const selectedProfession = selectedAnswers.reduce((acc, answer) => {
+        if (professions[answer]) acc[answer] = (acc[answer] || 0) + 1;
+        return acc;
+      }, {});
+
+      const sortedProfessions = Object.keys(selectedProfession).sort((a, b) => selectedProfession[b] - selectedProfession[a]);
+
+      resultLinks.innerHTML = "";
+      sortedProfessions.slice(0, 3).forEach(prof => {
+        const link = document.createElement("a");
+        link.href = professions[prof];
+        link.textContent = prof;
+        link.target = "_blank";
+        link.className = "green-button";
+        resultLinks.appendChild(link);
+      });
+
+      restartButton.style.display = "inline-block";
+    }
+
+    // Перезапуск теста
+    // restartButton.addEventListener("click", () => {
+    //   currentQuestionIndex = 0;
+    //   selectedAnswers = [];
+    //   testQuestions.style.display = "block";
+    //   resultSection.style.display = "none";
+    //   showQuestion(currentQuestionIndex);
+    // });
+
+    // Инициализация теста
+    restartButton.addEventListener("click", () => {
+      currentQuestionIndex = 0;
+      selectedAnswers = [];
+      testQuestions.style.display = "block";
+      resultSection.style.display = "none";
+      restartButton.textContent = "Начать заново";
+      showQuestion(currentQuestionIndex);
+    });
+  </script>
+</body>
+</html>
