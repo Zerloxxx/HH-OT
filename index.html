@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ru">
+<link rel="stylesheet" hre="style.css">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,14 +12,147 @@
   cursor: inherit;
 }
     body {
-      margin: 0;
+        margin: 0;
       font-family: DAYTON, sans-serif;
-      background: linear-gradient(135deg, #8896dc 0%, #ffffff 100%);
-      color: #333;
+      background: url(ffwsaf.png)
     }
 
     header {
-        background: linear-gradient(135deg, #475092, #b4d6f7);
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: linear-gradient(90deg, #c6c8d7, #b0b2ff, #f6c2f1);
+            background-size: 400% 400%;
+            animation: gradientAnimation 7s ease infinite;
+            height: 60px;
+            /* padding: 20px;
+            text-align: center;
+            color: #fff; */
+        }
+        body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f8f9fb;
+}
+.textright {
+    text-align: right;
+    padding: 10px 20px;
+            font-size: 16px;
+            color: rgb(242, 242, 242);
+            background-color: #6a0dad;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+}
+.cards-container {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  margin: 40px auto;
+  max-width: 1200px;
+}
+
+.card {
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 10px;
+  width: 250px;
+  text-align: left;
+}
+
+.card h3 {
+  font-size: 20px;
+  margin: 20px 0;
+}
+
+.card ul {
+  list-style: none;
+  padding: 0;
+  margin: 10px 0;
+}
+
+.card ul li {
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  color: #6b7280;
+  margin: 5px 0;
+}
+
+.card ul li i {
+  margin-right: 8px;
+  font-size: 16px;
+}
+
+.card button {
+  background: #f1f5f9;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  padding: 10px 20px;
+  font-size: 14px;
+  color: #1f2937;
+  margin-top: 15px;
+  transition: background 0.3s;
+}
+
+.card button:hover {
+  background: #e5e7eb;
+}
+
+.card button a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.tag {
+  display: inline-block;
+  padding: 5px 10px;
+  border-radius: 20px;
+  font-size: 12px;
+  color: #fff;
+  margin-right: 5px;
+}
+
+.tag.student {
+  background-color: #a7f3d0;
+  color: #065f46;
+}
+
+.tag.graduate {
+  background-color: #e9d5ff;
+  color: #6b21a8;
+}
+
+.tag.school {
+  background-color: #fecaca;
+  color: #9b1c1c;
+}
+
+
+        @keyframes gradientAnimation {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        h1 {
+            font-family: Arial, sans-serif;
+            color: white;
+            text-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+        
       padding: 20px;
       text-align: center;
       color: #fff;
@@ -46,31 +180,32 @@
     }
 
     .keywords {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 20px;
-    }
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px; /* Расстояние между элементами */
+  flex-wrap: wrap; /* Позволяет элементам переноситься на новую строку при необходимости */
+  margin-top: 20px;
+}
+.keywords span {
+  display: inline-block;
+  padding: 10px 20px;
+  border-radius: 20px;
+  background: #fff;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transform: rotate(0deg); /* Убираем произвольный поворот */
+  transition: transform 0.3s ease;
+}
+.keywords span:hover {
+  transform: scale(1.05); /* Немного увеличиваем элемент при наведении */
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+}
 
-    .keywords span {
-      background-color: #f2f4f7;
-      color: #333;
-      border-radius: 20px;
-      padding: 10px 15px;
-      font-size: 14px;
-      font-weight: bold;
-      font-family: comic sans ms, sans-serif;
-      box-shadow: 0 4px 6px rgba(153, 0, 255, 0.1);
-      transition: border 0.3s;
-    }
-
-    .keywords span:hover {
-      border: 2px solid #6b17d8;
-    }
+    
 
     .buttons {
       text-align: center;
-      margin-top: 20px;
+      margin-top: 50px;
     }
 
     .buttons button {
@@ -102,7 +237,7 @@
       background-color: #fff;
       border: 1px solid #ddd;
       border-radius: 12px;
-      padding: 20px;
+      padding: 40px 20px;
       text-align: center;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
       width: 100%;
@@ -211,7 +346,7 @@
     }
 
     .jobs-list a:hover {
-      background-color: #cce7e2;
+      background-color: #e8def7;
     }
 
     /* Highlight Job Card */
@@ -243,11 +378,14 @@
 }
 
 .popup__bg.active {
+    position:static;
     opacity: 1;
     pointer-events: all;
     transition: 0.5s all;
 }
-
+.popup__bg.active:hover {
+    background: none;
+}
 .popup {
     position: absolute;
     top: 50%;
@@ -345,22 +483,143 @@
     color:#2982ff;
     transition: 0.5s all;
 }
+.bodys {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end; /* Выровнять элементы по нижнему краю */
+    margin: 0;
+    position: relative; /* Для корректного позиционирования */
+        }
+
+        .cards1 {
+    cursor: pointer;
+    bottom: 0;
+    display: flex;
+    gap: 20px;
+    background-color: linear-gradient(135deg, #8896dc 0%, #ffffff 100%); /* Фон для блока */
+    padding: 100px 20px;
+    width: 100%; /* Растянуть блок по ширине экрана */
+    justify-content: center;
+    transition: transform 0,3s, background-color 0.3s;
+        }
+
+        .card1 {
+            background-color: #f8f8f8;
+      border: 1px solid #ddd;
+      border-radius: 12px;
+      padding: 20px;
+      text-align: center;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      width: 100%;
+      max-width: 300px;
+      position: relative;
+      transition: transform 0.3s, background-color 0.3s;
+            display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+      padding: 40px;
+      justify-items: center;
+            background: rgb(254, 254, 255);
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 20px;
+    width: 300px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .card1:hover {
+            transform: translateY(-3px);
+        }
+        .card h3 {
+            margin: 0;
+    font-size: 18px;
+    color: #333;
+        }
+
+        .card p {
+            margin: 10px 0 20px;
+    color: #666;
+    font-size: 14px;
+    line-height: 1.5;
+        }
+
+        .card .tag1 {
+            display: inline-block;
+    background: #ffbcbc;
+    color: #ffffff;
+    font-size: 12px;
+    padding: 4px 8px;
+    border-radius: 12px;
+    margin-bottom: 10px;
+        }
+
+        .card a {
+            text-decoration: none;
+    color: #0066cc;
+    font-weight: bold;
+    font-size: 14px;
+        }
+
+        .card a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
   </style>
 </head>
+    <style>
+        .button {
+            background-color: #6a4dff;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-size: 16px;
+            border: none;
+            cursor: pointer;
+            text-align: center;
+            transition: background-color 0.3s;
+            background-color: #ac48c5; /* Темно-зеленый цвет */
+      color: white;
+      border: none;
+      border-radius: 8px;
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+      margin: 10px;
+      transition: background-color 0.3s, transform 0.3s;
+        }
+
+        .button:hover {
+            background-color: #6f00ff;
+        }
+
+        .button a {
+            color: white;
+            text-decoration: none;
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+    </button>
 <body>
   <header>
-    <h1 style="color:#000000">HHstudents</h1>
-    <p style="color:#000000">Лучший сайт по подбору вакансий для студентов и школьников</p>
+    <h1 style="color:#e33030">hh<span style="color:#000000">Students</span></h1>
+    <h3 style="color:#000000">Лучший сайт по подбору вакансий для студентов и школьников</h3>
+    <div class="textright"><button id="profileButton">Профиль</button></div>
   </header>
 
   <section class="main-banner">
-    <h2><span style="font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif">Поможем найти первую работу и начать карьеру</span></h2>
-    <div class="keywords">
-      <span style="transform: rotate(10deg); text-align: left;">сам себе босс</span>
-      <span style="transform: rotate(-10deg);">карманные деньги</span>
-      <span style="transform: rotate(12deg);">получу опыт</span>
-      <span style="transform: rotate(-12deg);">карьерный старт</span>
-      <span style="transform: rotate(-11deg);">всё смогу</span>
+    <h2><span style="font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif">Поможем найти первую<span style="color:#5137ce"> работу</span> и начать<span style="color:#f03a3a"> карьеру</span></span></h2>
+    <div class="keywords" style="display: flex; align-items: center; justify-content: center; gap: 10px; flex-wrap: wrap;"> 
+      <class="keywords"> 
+        <span style="transform: rotate(2deg); text-align: left;">сам себе босс</span>
+        <span style="transform: rotate(-2deg);">карманные деньги</span>
+        <span style="transform: rotate(2deg);">получу опыт</span>
+        <span style="transform: rotate(-2deg);">карьерный старт</span>
+        <span style="transform: rotate(2deg);">всё смогу</span>
+    </div>
+    
     </div>
     <div class="popup__bg">
       <form class="popup">
@@ -387,39 +646,57 @@
       </form>
   </div>
     <div class="buttons">
-      <button><a href="#" class="open-popup">Создать резюме</a></button>
-      <a href='#Я не знаю с чего начать'>
-        <button id="restart-testr" class="green-button" onclick="document.getElementById('povar').scrollIntoView({ behavior: 'smooth' });">Я не знаю, с чего начать.
+      <button  style="margin-left: 220px;"><a class="open-popup">Задать вопрос</a></button>
+        <button style="margin-right: 150px;"restart-testr" class="green-button" onclick="document.getElementById('povar').scrollIntoView({ behavior: 'smooth' });">Я не знаю с чего начать
       </button>
       </a>
-    </div>
+    </div> 
+    <a href="https://nn.hh.ru/registration?hhtmFrom=students&hhtmFromLabel=help" target="_blank">
+        <button class="button">Создать резюме</button>
+    </a>
   </section>
 
   <section class="cards">
-    <div class="card" data-category="студентам">
-      <h3>Подработка</h3>
-      <p>гибкий график</p>
-      <p>на карманные расходы</p>
-      <button><a href="https://hh.ru/search/vacancy?experience=noExperience&employment=part&hhtmFrom=students&hhtmFromLabel=for_users">Смотреть</a></button>
+    <div class="cards-container">
+      <div class="card" data-category="студентам">
+        <span class="tag student">студентам</span>
+        <h3>Подработка</h3>
+        <ul>
+          <li><i class="icon-calendar"></i>гибкий график</li>
+          <li><i class="icon-wallet"></i>на карманные расходы</li>
+        </ul>
+        <button><a href="https://hh.ru/search/vacancy?experience=noExperience&employment=part&hhtmFrom=students&hhtmFromLabel=for_users">Смотреть</a></button>
+      </div>
+      <div class="card" data-category="студентам выпускникам">
+        <span class="tag student">студентам</span>
+        <span class="tag graduate">выпускникам</span>
+        <h3>Стажировка</h3>
+        <ul>
+          <li><i class="icon-star"></i>прокачать навыки</li>
+          <li><i class="icon-check"></i>получить опыт работы</li>
+        </ul>
+        <button><a href="https://hh.ru/stazhirovki?hhtmFrom=students&hhtmFromLabel=for_users">Смотреть</a></button>
+      </div>
+      <div class="card" data-category="выпускникам">
+        <span class="tag graduate">выпускникам</span>
+        <h3>Фултайм</h3>
+        <ul>
+          <li><i class="icon-briefcase"></i>начать карьеру</li>
+          <li><i class="icon-repeat"></i>постоянная занятость</li>
+        </ul>
+        <button><a href="https://hh.ru/search/vacancy?employment=full&experience=noExperience&hhtmFrom=students&hhtmFromLabel=for_users">Смотреть</a></button>
+      </div>
+      <div class="card" data-category="школьникам">
+        <span class="tag school">школьникам</span>
+        <h3>Подросткам</h3>
+        <ul>
+          <li><i class="icon-book"></i>совмещать с учёбой</li>
+          <li><i class="icon-user"></i>для соискателей 14+</li>
+        </ul>
+        <button><a href="https://hh.ru/search/vacancy?search_field=name&search_field=company_name&search_field=description&enable_snippets=false&experience=noExperience&label=accept_kids&text=&L_save_area=true&hhtmFrom=students&hhtmFromLabel=for_users">Смотреть</a></button>
+      </div>
     </div>
-    <div class="card" data-category="студентам выпускникам">
-      <h3>Стажировка</h3>
-      <p>прокачать навыки</p>
-      <p>получить опыт работы</p>
-      <button><a href="https://hh.ru/stazhirovki?hhtmFrom=students&hhtmFromLabel=for_users">Смотреть</a></button>
-    </div>
-    <div class="card" data-category="выпускникам">
-      <h3>Фултайм</h3>
-      <p>начать карьеру</p>
-      <p>постоянная занятость</p>
-      <button><a href="https://hh.ru/search/vacancy?employment=full&experience=noExperience&hhtmFrom=students&hhtmFromLabel=for_users">Смотреть</a></button>
-    </div>
-    <div class="card" data-category="школьникам">
-      <h3>Подросткам</h3>
-      <p>совмещать с учёбой</p>
-      <p>для соискателей 14+</p>
-      <button><a href="https://hh.ru/search/vacancy?search_field=name&search_field=company_name&search_field=description&enable_snippets=false&experience=noExperience&label=accept_kids&text=&L_save_area=true&hhtmFrom=students&hhtmFromLabel=for_users">Смотреть</a></button>
-    </div>
+    
   </section>
 
   <section class="test-section">
@@ -474,6 +751,7 @@
   </style>
 
   <section class="jobs-list">
+    <p>Популярные варианты профессий: </p>
     <a href="https://hh.ru/vacancies/konsultant">Продавец-консультант</a>
     <a href="https://hh.ru/vacancies/analitik">Аналитик</a>
     <a href="https://hh.ru/search/vacancy?text=Курьер&salary=&ored_clusters=true&experience=noExperience&accept_temporary=false&hhtmFrom=students&hhtmFromLabel=professions">Курьер</a>
@@ -484,6 +762,30 @@
     <a href="https://hh.ru/vacancies/dizayner">Дизайнер</a>
   </section>
 
+  <div class="bodys">
+    <div class="cards1">
+        <div class="card1">
+            <span class="tag1">Сервисы</span>
+            <h3>Молодёжный блог</h3>
+            <p>Советы по поиску работы, составлению резюме и лайфхаки для успешного начала карьеры</p>
+            <a href="https://hh.ru/articles/students?hhtmFrom=students&hhtmFromLabel=info"><button>Подробнее</button></a>
+        </div>
+
+        <div class="card1">
+            <span class="tag1">Мессенджер</span>
+            <h3>Телеграм-канал hh students</h3>
+            <p>Вдохновляющие посты о старте карьеры, идеи подработок и стажировок и возможность задать вопросы</p>
+            <a href="https://t.me/hh_internships"><button>Подробнее</button></a>
+        </div>
+
+        <div class="card1">
+            <span class="tag1">Навыки</span>
+            <h3>Прокачай своё резюме</h3>
+            <p>Стань заметнее для работодателей — оцени гибкие навыки на сайте проекта «Центры компетенций» и загрузи результаты в резюме на hh.ru</p>
+            <a href="https://softskills.rsv.ru/?utm_source=hh.ru&utm_medium=referral&utm_campaign=students_page"><button>Подробнее</button></a>
+        </div>
+    </div>
+</div>
   <script>
     const questions = [
       { question: "Какая сфера вам ближе?", options: ["IT", "Маркетинг", "Медицина", "Искусство", "Образование"] },
@@ -510,6 +812,7 @@
       Руководитель: "https://hh.ru/vacancies/rukovoditel",
       Фрилансер: "https://hh.ru/vacancies/frilanser"
     };
+    
 
     let currentQuestionIndex = 0;
     let selectedAnswers = [];
@@ -614,6 +917,9 @@ document.addEventListener('click', (e) => { // Вешаем обработчик
       restartButton.textContent = "Начать заново";
       showQuestion(currentQuestionIndex);
     });
+        document.getElementById('profileButton').addEventListener('click', function () {
+            window.location.href = 'profile.html';
+        });
   </script>
 </body>
 </html>
